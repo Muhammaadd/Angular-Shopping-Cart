@@ -1,0 +1,9 @@
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Favorite
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li *ngFor="let item of listofFav"><a [routerLink]="['/carddt',item.id]" class="dropdown-item">{{item.title}}</a></li>
+          </ul>
+        </li>

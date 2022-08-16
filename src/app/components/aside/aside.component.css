@@ -1,0 +1,15 @@
+.wrapper {
+  height: 100vh;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  z-index: -1;
+  padding-top: 100px;
+}
+li {
+  margin-bottom: 15px;
+}
+li a {
+  color: white;
+  text-decoration: none;
+}

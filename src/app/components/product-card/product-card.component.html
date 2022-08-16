@@ -1,0 +1,22 @@
+<div  appScaleItem class="card" style="width: 18rem;">
+  <img (mouseenter)="changeStatus()"(mouseout)="changeStatus()" [src]="product?.image" class="card-img-top" alt="...">
+  <div *ngIf="hoverstatus"  class="content">
+    <p>Rate : {{product.rating.rate}} </p>
+    <p>Count : {{product.rating.count}}</p>
+  </div>
+  <div class="card-body">
+    <a [routerLink]="['/carddt',product?.id]" href="">
+    <h5 class="card-title">More Details</h5></a>
+    <p class="card-text">{{product?.title | slice : 30}}</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">{{product?.description | slice : 30}}</li>
+    <li class="list-group-item">${{product?.price}}</li>
+  </ul>
+  <div *ngIf="status" class="card-body">
+    <!-- <a href="#" class="card-link">Card link</a> -->
+    <button (click)="senddata(product)"  class="btn btn-success me-4">Add to Cart</button>
+    <button (click)="sendfav(product)" style="width: 108px;" class="btn btn-danger">Favorite</button>
+    <!-- <a href="#" class="card-link">Another link</a> -->
+  </div>
+</div>

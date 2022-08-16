@@ -1,0 +1,43 @@
+img {
+  width: 100%;
+}
+.contetnt {
+  padding: 8px;
+  background-color: #d9d9afb3;
+  border-radius:0 0 5px;
+  font-weight: bold;
+}
+.product {
+  position: relative;
+  margin-bottom: 20px;
+}
+.args {
+  display: none;
+  position: absolute;
+  padding: 26px;
+  padding-top: 10px;
+  font-weight: bold;
+  width: 316px;
+  height: 80px;
+  left: 12px;
+  bottom: 148px;
+  background-color: yellow;
+  background-color: #d9d9afb3;
+}
+.card{
+  position: relative;
+}
+.content {
+  position: absolute;
+  height: 100px;
+  padding: 10px 20px;
+  bottom: 241px;
+  left: 0;
+  width: 100%;
+  background-color: #f0f8ff6e;
+  /* visibility: hidden; */
+}
+/*
+.card:hover .content{
+  visibility: visible;
+} */

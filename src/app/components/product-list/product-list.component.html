@@ -1,0 +1,12 @@
+<br>
+<select (change)="getAllProducts(catname.value)" #catname class="form-select" aria-label="Default select example">
+  <option value="0" selected>All Categories</option>
+  <option *ngFor="let categoryName of getCategoriesNames()" [value]="categoryName.name">{{categoryName.name}}</option>
+</select>
+<br>
+<div class="container-fluid ps-0">
+  <div class="row">
+    <app-product-card  [status]="status" (sendproduct)="writeid($event)" *ngFor="let product of filterList" [product]="product" class="col-4 mb-3"></app-product-card>
+  </div>
+</div>
+

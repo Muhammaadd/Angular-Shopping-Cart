@@ -1,0 +1,52 @@
+<div class="container-fluid">
+  <form (ngSubmit)="addNewProduct()" [formGroup]="productForm">
+    <div class="mb-3">
+      <label for="prdID" class="form-label">Product ID</label>
+      <input formControlName="id" name="prdId" type="number" min="1" min="1" class="form-control" id="prdID">
+      <div *ngIf="id?.touched">
+      <div [hidden]="!id?.errors?.['required']" class="alert alert-warning">required</div>
+      <div [hidden]="!id?.errors?.['min']" class="alert alert-warning">invalid ID</div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="prdTitle" class="form-label">Product Title</label>
+      <input formControlName="title" name="prdtitle" type="text" class="form-control" id="prdTitle" aria-describedby="emailHelp">
+      <div *ngIf="title?.touched&&title?.invalid" class="alert alert-warning">required</div>
+    </div>
+    <div class="mb-3">
+      <label for="prdPrice" class="form-label">Product Price</label>
+      <input formControlName="price" name="prdPrice" type="number" min="1" class="form-control" id="prdPrice">
+      <div *ngIf="price?.touched">
+        <div [hidden]="!price?.errors?.['required']" class="alert alert-warning">required</div>
+        <div [hidden]="!price?.errors?.['min']" class="alert alert-warning">minimun Price = 100 L.E</div>
+        </div>
+    </div>
+    <div class="mb-3">
+      <label for="prdDescription" class="form-label">Product Description</label>
+      <input formControlName="description" name="prdDescription" type="text" class="form-control" id="prdDescription">
+      <div *ngIf="description?.touched&&description?.invalid" class="alert alert-warning">required</div>
+    </div>
+    <div class="mb-3">
+      <label for="prdCategory" class="form-label">Product Category</label>
+      <select formControlName="category" name="prdCategory" id="prdCategory" #catname class="form-select" aria-label="Default select example">
+        <option value="0" selected></option>
+        <option *ngFor="let categoryName of getCategoriesNames()" [value]="categoryName.name">{{categoryName.name}}</option>
+      </select>
+      <div *ngIf="category?.touched&&category?.value==='0'" class="alert alert-warning">required</div>
+    </div>
+    <div formGroupName="rating">
+      <div class="mb-3">
+        <label for="prdrate" class="form-label">Product rate</label>
+        <input formControlName="rate" name="prdrate" type="number" min="1" class="form-control" id="prdrate">
+        <div *ngIf="rate?.touched&&rate?.invalid" class="alert alert-warning">required</div>
+      </div>
+      <div class="mb-3">
+        <label for="prdcount" class="form-label">Product count</label>
+        <input formControlName="count" name="prdcount" type="number" min="1" class="form-control" id="prdcount">
+        <div *ngIf="count?.touched&&count?.invalid" class="alert alert-warning">required</div>
+      </div>
+    </div>
+    <input class="d-none" formControlName="image" value="https://picsum.photos/200">
+    <button [disabled]="productForm.invalid" type="submit" class="btn btn-primary col-12 mt-5 mb-5">Add New Product</button>
+  </form>
+</div>
